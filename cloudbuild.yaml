@@ -7,4 +7,4 @@ steps:
 
 # This step will deploy the new container image to cloud run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run','deploy', 'voice-prescription-service', '--image=gcr.io/$PROJECT_ID/voice-prescription-image', '--region=us-central1', '--allow-unauthenticated']
+  args: ['run','deploy', 'voice-prescription-service', '--image=gcr.io/$PROJECT_ID/voice-prescription-image', '--region=us-central1', '--allow-unauthenticated',"--port=7070"]
