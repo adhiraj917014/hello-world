@@ -10,11 +10,26 @@ phases:
   pre_build:
     commands:
       - echo "Running pre-build commands..."
+      - echo fetching the existing environment variable
+      - printenv
       - export FLASK_ENV=development
+      - echo Logging in to Amazon ECR...
+#      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 056247753720.dkr.ecr.ap-south-1.amazonaws.com
+#      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME
+#      - docker pull $REPOSITORY_URI:$IMAGE_TAG
   build:
     commands:
       - echo "Building the Flask app..."
-      - python app.py
+#      - python app.py
+#      - echo Build started on `date`
+#      - echo Building the Docker image...
+#      - docker build -t ecr-demo .
+#      - docker tag ecr-demo:latest 056247753720.dkr.ecr.ap-south-1.amazonaws.com/$IMAGE_REPO_NAME
+#  post_build:
+#    commands:
+#      - echo Build completed on `date`
+#      - echo Pushing the Docker image...
+#      - docker push 056247753720.dkr.ecr.ap-south-1.amazonaws.com/ecr-demo:latest
 artifacts:
   files:
     - '**/*'
